@@ -1,0 +1,39 @@
+#设计一个程序使一段字符串被加密，将原信息中所有字母移动n个位置，最后n个字母则放在开头。程序应既可以编码也可以解码，并可以自定义移动的位数。
+_type = input("Plese choose encode or decode:")
+message = input("Please enter your message:")
+move = int(input("Please enter your move amount:"))
+if _type == "encode":
+    for i in message:
+        if i == " ":    #用来读写字符串中的空格
+            print(end = " ")
+        else:
+            judge = ord(i)
+            x = ord(i) + move
+            if 65 <= judge <= 90:
+                if x <= 90:
+                    print(chr(x),end = "")
+                else:
+                    print(chr(x - 26),end = "")
+            elif 97 <= judge <= 122:
+                if x <= 122:
+                    print(chr(x),end = "")
+                else:
+                    print(chr(x - 26),end = "")
+if _type == "decode":
+    for i in message:
+        if i == " ":
+            print(end = " ")
+        else:
+            judge = ord(i)
+            x = ord(i) - move
+            if 65 <= judge <= 90:
+                if x >= 65:
+                    print(chr(x),end = "")
+                else:
+                    print(chr(x + 26),end = "")
+            elif 97 <= judge <= 122:
+                if x >= 97:
+                    print(chr(x),end = "")
+                else:
+                    print(chr(x + 26),end = "")
+                    
