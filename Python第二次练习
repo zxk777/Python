@@ -1,0 +1,36 @@
+def stringToNum(x):
+    res = []
+    y = ""
+    for each in x:
+        if each == ",":
+            res.append(int(y))
+            y = ""
+        else:
+            y += each
+    res.append(int(y))
+    return res
+
+def n_w_h_input(str1,flo1,flo2):
+    return (str1.upper(),float("%.1f"%flo1),float("%.1f"%flo2))
+
+def n_w_h_output(str1,flo1,flo2):
+    print("%s's weight is %.1f and his/her height is %.1f" % (str1,flo1,flo2))
+    
+def calcBMI(flo1,flo2):
+    return float("%.1f" % (flo1/flo2/flo2*10000))
+
+
+def bmiCat(x):
+  if x < 18.5:
+    return 'Underweight'
+  elif 18.5 <= x <= 24.9:
+    return 'Healthy'
+  elif 25 <= x <= 29.9:
+    return 'Overweight'
+  elif 30 <= x <= 39.9:
+    return 'Obese'
+  elif x >= 40:
+    return 'Severely obese'
+
+def bmiReport(name,weight,height,bmi,weight_category):
+    return {name:{"weight":weight,"height":height,"BMI":bmi,"weight category":weight_category}}
