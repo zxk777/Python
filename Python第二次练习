@@ -49,3 +49,75 @@ def startAndEnd(list1):
         return True
     else:
         return False
+
+def createBoard():
+    return [["_","_","_"],["_","_","_"],["_","_","_"]]
+
+def displayBoard(list1):
+    print("{}\n{}\n{}".format(list1[0],list1[1],list1[2]))
+
+def getMove():
+    number = int(input())
+    if 1 <= number <= 9:
+        return number
+    else:
+        return False
+
+def intToBoard(x):
+    if x == 1:
+        res = (0,0)
+    if x == 2:
+        res = (0,1)
+    if x == 3:
+        res = (0,2)
+    if x == 4:
+        res = (1,0)
+    if x == 5:
+        res = (1,1)
+    if x == 6:
+        res = (1,2)
+    if x == 7:
+        res = (2,0)
+    if x == 8:
+        res = (2,1)
+    if x == 9:
+        res = (2,2)
+    return res
+    
+def insertToBoard(pos,board,type1):
+    if board[pos[0]][pos[1]] != "_":
+        return (False,board)
+    if type1 == True:
+        board[pos[0]][pos[1]] = "X"
+    if type1 == False:
+        board[pos[0]][pos[1]] = "O"
+    return (True,board)
+
+def checkDraw(board):
+    check = 0
+    for i in board:
+        for j in i:
+            if j == "_":
+                check = 1
+                break
+    if check == 0:
+        return True
+    else:
+        return False
+
+def checkWin(board):
+    check = 0
+    for j in range(3):
+        if board[0][j] == board[1][j] == board[2][j]:
+            check == 1
+    for i in range(3):
+        if board[i][0] == board[i][1] == board[i][2]:
+            check == 1
+    if board[0][0] == board[1][1] == board[2][2]:
+        check == 1
+    if board[0][2] == board[1][1] == board[2][0]:
+        check == 1
+    if check == 1:
+        return False
+    else:
+        return True
