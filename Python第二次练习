@@ -19,7 +19,6 @@ def n_w_h_output(str1,flo1,flo2):
 def calcBMI(flo1,flo2):
     return float("%.1f" % (flo1/flo2/flo2*10000))
 
-
 def bmiCat(x):
   if x < 18.5:
     return 'Underweight'
@@ -34,3 +33,19 @@ def bmiCat(x):
 
 def bmiReport(name,weight,height,bmi,weight_category):
     return {name:{"weight":weight,"height":height,"BMI":bmi,"weight category":weight_category}}
+
+def oddList(int1,int2):
+    res = []
+    for i in range(int1,int2+1):
+        if i % 2 == 1:
+            res.append(i)
+    return res
+
+def reverseString(str1):
+    return str1[::-1]
+
+def startAndEnd(list1):
+    if list1[0] == list1[len(list1)-1]:
+        return True
+    else:
+        return False
